@@ -1,0 +1,46 @@
+
+@mixin flexible () {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@mixin components () {
+  border: 5px solid aquamarine;
+  justify-content: center;
+  margin: 5px;
+  width: 50%;
+  max-width: 90%;
+       * {margin: 1%}
+  @include flexible();
+}
+
+.buttonContainer{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+
+.App {
+  background-color: #282c34;
+  min-height: 100vh;
+  font-size: calc(10px + 2vmin);
+  color: white;
+  text-align: center;
+  @include flexible();
+}
+
+.header {
+  @include components();
+}
+.container {
+  @include components();
+}
+
+.green{
+  background-color: green;
+}
+.black{
+  background-color: black;
+}
