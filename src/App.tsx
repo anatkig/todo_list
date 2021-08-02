@@ -6,6 +6,7 @@ import { reducer, action } from "./reducer/reducer";
 import { useReducer } from "react";
 
 const initialValue = [] as JSX.Element[];
+
 export const Context = React.createContext({
   appState: [] as JSX.Element[],
   dispatch: {} as React.Dispatch<action>

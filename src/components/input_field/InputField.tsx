@@ -1,25 +1,28 @@
 import Button from "../button/Button";
-import { ADD_TODO, EMPTY_LIST, REMOVE_LAST } from "../../reducer/constants";
+import {
+  ADD_TODO,
+  EMPTY_LIST,
+  HIDE,
+  REMOVE_LAST
+} from "../../reducer/constants";
 import { useState } from "react";
+import Form from "../form/Form";
 
 const InputField = () => {
-  const [state, setState] = useState("");
-
+  const [state, setState] = useState(<div></div>);
   return (
     <>
-      <input
-        placeholder="type your todo here"
-        onChange={event => {
-          event.preventDefault();
-          setState(event.target.value);
-        }}
-      />
-
       <div className="buttonContainer">
-        <Button command={ADD_TODO} payload={state} />
-        <Button command={REMOVE_LAST} payload={state} />
-        <Button command={EMPTY_LIST} payload={state} />
+        <button type="button" onClick={() => setState(<Form />)}>
+          {ADD_TODO}
+        </button>
+        <button type="button" onClick={() => setState(<div></div>)}>
+          {HIDE}
+        </button>
+        <Button command={REMOVE_LAST} />
+        <Button command={EMPTY_LIST} />
       </div>
+      {state}
     </>
   );
 };

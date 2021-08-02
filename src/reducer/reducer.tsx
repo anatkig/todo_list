@@ -8,7 +8,7 @@ export type action = {
 
 export const reducer = (state: JSX.Element[], action: action) => {
   switch (action.type) {
-    case "Add a todo":
+    case "Submit":
       return [
         ...state,
         <Todo
@@ -18,6 +18,8 @@ export const reducer = (state: JSX.Element[], action: action) => {
           background="black"
         />
       ];
+    case "Add a todo":
+      return [];
     case "Remove last todo":
       return [...state.filter((el, index) => index < state.length - 1)];
     case "Remove":
