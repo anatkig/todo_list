@@ -9,11 +9,13 @@
   border: 5px solid aquamarine;
   justify-content: center;
   margin: 5px;
-  width: 50%;
+  width: 70%;
   max-width: 90%;
        * {margin: 1%}
   @include flexible();
 }
+
+
 
 .buttonContainer{
   display: flex;
@@ -43,4 +45,14 @@
 }
 .black{
   background-color: black;
+}
+@media screen and (max-width: 950px){
+  .header{
+    width: 100%;
+  }
+  .container{
+    width: 100%;
+  }
+
+
 }

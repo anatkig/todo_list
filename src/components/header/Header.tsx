@@ -3,7 +3,7 @@ import InputField from "../input_field/InputField";
 const Header = () => {
   return (
     <div className="header">
-      To Do List
+      Todo List
       <InputField />
     </div>
   );
