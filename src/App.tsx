@@ -1,16 +1,10 @@
 import "./App.scss";
 import Container from "./components/container/Container";
 import Header from "./components/header/Header";
-import React from "react";
-import { reducer, action } from "./reducer/reducer";
+import { reducer } from "./logic/reducer";
 import { useReducer } from "react";
-
-const initialValue = [] as JSX.Element[];
-
-export const Context = React.createContext({
-  appState: [] as JSX.Element[],
-  dispatch: {} as React.Dispatch<action>
-});
+import { initialValue } from "./logic/state";
+import { Context } from "./logic/state";
 
 function App() {
   const [appState, dispatch] = useReducer(reducer, initialValue);

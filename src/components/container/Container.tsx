@@ -1,12 +1,12 @@
 import { useContext } from "react";
-import { Context } from "../../App";
+import { Context } from "../../logic/state";
 
 const Container = () => {
   const { appState } = useContext(Context);
 
   return (
     <div className="container">
-      All Your Todos Here
+      <h5>All Your Todos Here</h5>
       {appState}
     </div>
   );

@@ -1,25 +1,20 @@
 import Todo from "../components/todo/Todo";
-
-export type action = {
-  type: string;
-  payload: string;
-  ident: number;
-};
+import { action } from "./state";
 
 export const reducer = (state: JSX.Element[], action: action) => {
   switch (action.type) {
     case "Submit":
-      return [
-        ...state,
-        <Todo
-          message={action.payload}
-          key={new Date().getTime()}
-          ident={new Date().getTime()}
-          background="black"
-        />
-      ];
-    case "Add a todo":
-      return [];
+      if (action.payload)
+        return [
+          ...state,
+          <Todo
+            message={action.payload}
+            key={new Date().getTime()}
+            ident={new Date().getTime()}
+            background="black"
+          />
+        ];
+      else return state;
     case "Remove last todo":
       return [...state.filter((el, index) => index < state.length - 1)];
     case "Remove":

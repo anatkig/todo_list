@@ -5,3 +5,5 @@ export const DONE = "Done";
 export const EMPTY_LIST = "Empty the list";
 export const SUBMIT = "Submit";
 export const HIDE = "Hide input field";
+export const HIDDEN = "hidden";
+export const UNHIDDEN = "unhidden";
