@@ -6,7 +6,7 @@
 }
 
 @mixin components () {
-  border: 5px solid aquamarine;
+  border: 5px solid #ADEFD1FF;
   justify-content: center;
   margin: 5px;
   width: 70%;
@@ -16,7 +16,7 @@
 }
 
 button {
-  background-color:aquamarine;
+  background-color:#ADEFD1FF;
   border-radius: 10%;
   padding: 8px;
   cursor: pointer;
@@ -33,7 +33,7 @@ button:hover{
 }
 
 .App {
-  background-color: #282c34;
+  background-color: #00203FFF;
   min-height: 100vh;
   font-size: calc(10px + 2vmin);
   color: rgb(220, 220, 220);
@@ -62,13 +62,17 @@ width: 100%;
   border-radius: 5px;
   color:rgb(220, 220, 220);
   font-size: 1.2rem;
+
+}
+.input[placeholder]{
+  padding: 0% 2%;
 }
 
 .green{
-  background-color: green;
+  background-color: #2BAE66FF;
 }
 .black{
-  background-color:brown;
+  background-color:#76528BFF;
 }
 .hidden{
   visibility:hidden;

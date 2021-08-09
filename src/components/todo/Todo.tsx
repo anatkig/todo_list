@@ -6,7 +6,11 @@ const Todo = (props: object | any) => {
     <div className={`todo ${props.background}`}>
       <div>{props.message}</div>
       <div className="buttonContainer">
-        <Button command={DONE} ident={props.ident} />
+        {props.background === "black" ? (
+          <Button command={DONE} ident={props.ident} />
+        ) : (
+          ""
+        )}
         <Button command={REMOVE} ident={props.ident} />
       </div>
     </div>
