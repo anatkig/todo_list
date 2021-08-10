@@ -1,20 +1,6 @@
-import React, { useContext } from "react";
-import { Context } from "../../logic/state";
-
 const Button = (props: object | any) => {
-  const { dispatch } = useContext(Context);
   return (
-    <button
-      title={props.command}
-      onClick={() =>
-        dispatch({
-          type: props.command,
-          message: "",
-          key: 0,
-          ident: props.ident,
-        })
-      }
-    >
+    <button title={props.command}>
       {props.icon}
       {props.text}
     </button>
