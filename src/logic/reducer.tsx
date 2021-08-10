@@ -17,9 +17,9 @@ export const reducer = (state: action[], action: action) => {
       else return state;
     case "remove last todo":
       return [...state.filter((el, index) => index < state.length - 1)];
-    case "remove":
+    case "Remove":
       return [...state.filter(el => el.ident !== action.ident)];
-    case "done":
+    case "Done":
       return [
         ...state.map(el => {
           if (el.ident === action.ident)
