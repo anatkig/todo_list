@@ -2,13 +2,14 @@ import React from "react";
 
 export type action = {
   type: string;
-  payload: string;
+  key: number;
+  message: string;
   ident: number;
 };
 
-export const initialValue = [] as JSX.Element[];
+export const initialValue: action[] = [];
 
 export const Context = React.createContext({
-  appState: [] as JSX.Element[],
-  dispatch: {} as React.Dispatch<action>
+  todos: [] as action[],
+  dispatch: {} as React.Dispatch<action>,
 });

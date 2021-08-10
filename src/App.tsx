@@ -7,11 +7,11 @@ import { initialValue } from "./logic/state";
 import { Context } from "./logic/state";
 
 function App() {
-  const [appState, dispatch] = useReducer(reducer, initialValue);
+  const [todos, dispatch] = useReducer(reducer, initialValue);
 
   return (
     <div className="App">
-      <Context.Provider value={{ appState, dispatch }}>
+      <Context.Provider value={{ todos, dispatch }}>
         <Header />
         <Container />
       </Context.Provider>

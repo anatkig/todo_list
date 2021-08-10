@@ -16,8 +16,8 @@ const Header = () => {
           <button type="button" onClick={() => setState(<div></div>)}>
             {HIDE}
           </button>
-          <Button command={REMOVE_LAST} />
-          <Button command={EMPTY_LIST} />
+          <Button command={REMOVE_LAST} text={REMOVE_LAST} />
+          <Button command={EMPTY_LIST} text={EMPTY_LIST} />
         </div>
         {state}
       </div>

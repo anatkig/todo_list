@@ -14,8 +14,9 @@ const Form = () => {
       setState(HIDDEN);
       dispatch({
         type: SUBMIT,
-        payload: event.target.inp.value,
-        ident: 0
+        message: event.target.inp.value,
+        key: 0,
+        ident: 0,
       });
     }
     event.target.inp.value = "";
@@ -30,7 +31,7 @@ const Form = () => {
         name="inp"
         placeholder="type your todo here"
       />
-      <Button command={SUBMIT}>Submit</Button>
+      <Button command={SUBMIT} text={SUBMIT}></Button>
     </form>
   );
 };
