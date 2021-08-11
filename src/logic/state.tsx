@@ -2,8 +2,8 @@ import React from "react";
 
 export type action = {
   type: string;
-  key: number;
   message: string;
+  key: number;
   ident: number;
 };
 

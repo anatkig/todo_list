@@ -9,13 +9,15 @@ const Todo = (props: object | any) => {
   const { dispatch } = useContext(Context);
 
   const handleClick = (event: any) => {
-    event.preventDefault();
-    dispatch({
-      type: event.target.closest("button").title,
-      message: "",
-      key: 0,
-      ident: props.ident,
-    });
+    if (event.target.closest("button")) {
+      event.preventDefault();
+      dispatch({
+        type: event.target.closest("button").title,
+        message: "",
+        key: 0,
+        ident: props.ident,
+      });
+    }
   };
 
   return (
