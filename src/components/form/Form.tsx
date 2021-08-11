@@ -1,3 +1,4 @@
+import React from "react";
 import { useContext, useState } from "react";
 import { SUBMIT, HIDDEN, UNHIDDEN } from "../../logic/constants";
 import Button from "../button/Button";
@@ -7,31 +8,35 @@ import PopUp from "./PopUp";
 const Form = () => {
   const { dispatch } = useContext(Context);
   const [state, setState] = useState(HIDDEN);
-  const handleSubmit = (event: any) => {
-    event.preventDefault();
-    if (!event.target.inp.value) setState(UNHIDDEN);
+  const [inputValue, setValue] = useState("");
+
+  const handleSubmit = () => {
+    if (inputValue === "") setState(UNHIDDEN);
     else {
       setState(HIDDEN);
       dispatch({
         type: SUBMIT,
-        message: event.target.inp.value,
+        message: inputValue,
         key: 0,
         ident: 0,
       });
     }
-    event.target.inp.value = "";
+    setValue("");
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form>
       <PopUp visibility={state} />
       <input
         className="input"
         type="text"
-        name="inp"
+        value={inputValue}
         placeholder="type your todo here"
+        onChange={e => {
+          setValue(e.target.value);
+        }}
       />
-      <Button command={SUBMIT} text={SUBMIT}></Button>
+      <Button command={SUBMIT} text={SUBMIT} onClick={handleSubmit}></Button>
     </form>
   );
 };

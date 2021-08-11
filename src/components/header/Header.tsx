@@ -9,28 +9,20 @@ const Header = () => {
   const [state, setState] = useState(<div></div>);
   const { dispatch } = useContext(Context);
 
-  const handleClick = (event: any) => {
-    if (
-      event.target.closest("button") &&
-      (event.target.closest("button").textContent === REMOVE_LAST ||
-        event.target.closest("button").textContent === EMPTY_LIST)
-    ) {
-      event.preventDefault();
-      event.stopPropagation();
-      dispatch({
-        type: event.target.closest("button").textContent,
-        message: "",
-        key: 0,
-        ident: 0,
-      });
-    }
+  const handleClick = (type: string) => {
+    dispatch({
+      type: type,
+      message: "",
+      key: 0,
+      ident: 0,
+    });
   };
 
   return (
     <>
       <div className="header">
         <h3>Todo List</h3>
-        <div className="buttonContainer" onClick={handleClick}>
+        <div className="buttonContainer">
           <button type="button" onClick={() => setState(<Form />)}>
             {ADD_TODO}
           </button>
@@ -38,8 +30,16 @@ const Header = () => {
             {HIDE}
           </button>
 
-          <Button command={REMOVE_LAST} text={REMOVE_LAST} />
-          <Button command={EMPTY_LIST} text={EMPTY_LIST} />
+          <Button
+            command={REMOVE_LAST}
+            text={REMOVE_LAST}
+            onClick={handleClick}
+          />
+          <Button
+            command={EMPTY_LIST}
+            text={EMPTY_LIST}
+            onClick={handleClick}
+          />
         </div>
         {state}
       </div>

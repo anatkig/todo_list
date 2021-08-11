@@ -8,27 +8,25 @@ import React, { useContext } from "react";
 const Todo = (props: object | any) => {
   const { dispatch } = useContext(Context);
 
-  const handleClick = (event: any) => {
-    if (event.target.closest("button")) {
-      event.preventDefault();
-      dispatch({
-        type: event.target.closest("button").title,
-        message: "",
-        key: 0,
-        ident: props.ident,
-      });
-    }
+  const handleClick = (message: string) => {
+    dispatch({
+      type: message,
+      message: "",
+      key: 0,
+      ident: props.ident,
+    });
   };
 
   return (
     <div className={`todo ${props.type}`}>
       <div>{props.message}</div>
-      <div className="buttonContainer" onClick={handleClick}>
+      <div className="buttonContainer">
         {props.type !== DONE ? (
           <Button
             command={DONE}
             ident={props.ident}
             icon={<DoneOutlineIcon />}
+            onClick={handleClick}
           />
         ) : (
           ""
@@ -37,6 +35,7 @@ const Todo = (props: object | any) => {
           command={REMOVE}
           ident={props.ident}
           icon={<DeleteOutlineIcon />}
+          onClick={handleClick}
         />
       </div>
     </div>
