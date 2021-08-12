@@ -1,9 +1,16 @@
-import { DONE, PENDING } from "./constants";
+import {
+  DONE,
+  EMPTY_LIST,
+  PENDING,
+  REMOVE,
+  REMOVE_LAST,
+  SUBMIT,
+} from "./constants";
 import { action } from "./state";
 
 export const reducer = (state: action[], action: action) => {
   switch (action.type) {
-    case "Submit":
+    case SUBMIT:
       if (action.message)
         return [
           ...state,
@@ -15,11 +22,11 @@ export const reducer = (state: action[], action: action) => {
           },
         ];
       else return state;
-    case "Remove last todo":
+    case REMOVE_LAST:
       return [...state.filter((el, index) => index < state.length - 1)];
-    case "Remove":
+    case REMOVE:
       return [...state.filter(el => el.ident !== action.ident)];
-    case "Done":
+    case DONE:
       return [
         ...state.map(el => {
           if (el.ident === action.ident)
@@ -33,7 +40,7 @@ export const reducer = (state: action[], action: action) => {
           return el;
         }),
       ];
-    case "Empty the list":
+    case EMPTY_LIST:
       return [];
   }
   return [];
